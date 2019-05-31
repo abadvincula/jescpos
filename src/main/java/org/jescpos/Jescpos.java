@@ -23,17 +23,21 @@
  */
 package org.jescpos;
 
+import org.JescposService;
 import org.escPosConst.Enum;
+import org.stream.PrinterOutputStream;
 
 import java.io.*;
 
 /**
  * @author Anderson Silva
  */
-public class Jescpos implements Enum, Closeable, Flushable {
+public class Jescpos implements Enum, Closeable, Flushable, JescposService {
     private final OutputStream outputStream;
+    private final Stylizable stylizable;
 
     public Jescpos(OutputStream outputStream) {
+        this.stylizable = new Stylizable();
         this.outputStream = outputStream;
     }
 
@@ -43,8 +47,9 @@ public class Jescpos implements Enum, Closeable, Flushable {
      * @param bytes byte array
      * @return {@link Jescpos}
      */
-    private Jescpos bytes(byte bytes[]) throws IOException {
-        outputStream.write(bytes);
+    @Override
+    public Jescpos bytes(byte[] bytes) throws IOException {
+        this.outputStream.write(bytes);
         return this;
     }
 
@@ -54,17 +59,66 @@ public class Jescpos implements Enum, Closeable, Flushable {
      * @param text string
      * @return {@link Jescpos}
      */
+    @Override
     public Jescpos text(String text) throws IOException {
         return bytes(text.getBytes());
     }
 
     @Override
     public void close() throws IOException {
-        outputStream.close();
+        this.outputStream.close();
     }
 
     @Override
     public void flush() throws IOException {
         outputStream.flush();
+    }
+
+    ////////////////////////////////////////////////////////
+
+    @Override
+    public Jescpos printf(String text) throws IOException {
+        text(text);
+        feed(1);
+        return this;
+    }
+
+    @Override
+    public Jescpos code(int b) throws IOException {
+        this.outputStream.write(b);
+        return this;
+    }
+
+    @Override
+    public Jescpos code(byte[] bytes, int off, int len) throws IOException {
+        this.outputStream.write(bytes, off, len);
+        return this;
+    }
+
+    @Override
+    public Jescpos feed(int nlines) throws IOException {
+        if(nlines < 1 || nlines > 255){
+            PrinterOutputStream.showException(null, new RuntimeException("(nlines) lines are not supported!"));
+        }
+
+        code(ESC);
+        code('d');
+        code(nlines);
+        return this;
+    }
+
+    @Override
+    public Jescpos printf(Stylizable stylizable, String text) {
+        return null;
+    }
+
+    @Override
+    public Jescpos code(Stylizable stylizable, int b) {
+        return null;
+    }
+
+    @Override
+    public Jescpos feed(Stylizable stylizable, int n) {
+        return null;
     }
 }

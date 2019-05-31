@@ -88,16 +88,6 @@ public class PrinterOutputStream extends PipedOutputStream {
         return service;
     }
 
-    public static byte[] getConfigBytes() {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-
-        bytes.write(Enum.ESC);
-        bytes.write('a');
-        bytes.write(Enum.Justification.CENTER.getValue());
-
-        return bytes.toByteArray();
-    }
-
     /**
      * Show an exception dialog with two buttons, okay (closes the dialog) and
      * detail (shows another dialog detailing the exception).
