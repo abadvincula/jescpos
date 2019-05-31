@@ -1,7 +1,22 @@
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PipedOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.print.PrintService;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import org.escPosConst.Enum;
+import org.jescpos.Jescpos;
+import org.stream.PrinterOutputStream;
+
 /*
  * The MIT License
  *
- * Copyright 2019 Anderson Silva.
+ * Copyright 2019 development.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,50 +36,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.jescpos;
-
-import org.escPosConst.Enum;
-
-import java.io.*;
 
 /**
- * @author Anderson Silva
+ * @author development
  */
-public class Jescpos implements Enum, Closeable, Flushable {
-    private final OutputStream outputStream;
-
-    public Jescpos(OutputStream outputStream) {
-        this.outputStream = outputStream;
-    }
-
-    /**
-     * Sends a raw byte array to the printer.
-     *
-     * @param bytes byte array
-     * @return {@link Jescpos}
-     */
-    private Jescpos bytes(byte bytes[]) throws IOException {
-        outputStream.write(bytes);
-        return this;
-    }
-
-    /**
-     * Sends a string to the printer.
-     *
-     * @param text string
-     * @return {@link Jescpos}
-     */
-    public Jescpos text(String text) throws IOException {
-        return bytes(text.getBytes());
-    }
-
-    @Override
-    public void close() throws IOException {
-        outputStream.close();
-    }
-
-    @Override
-    public void flush() throws IOException {
-        outputStream.flush();
+public class main {
+    public static void main(String[] args) throws IOException {
+        PrintService printService = PrinterOutputStream.getServicePrinterByName("Elgin");
+        PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
+        Jescpos jescpos = new Jescpos(printerOutputStream);
+        jescpos.text("HYPERMENO");
+        jescpos.text(" / CUPOM NAO FISCAL");
+        jescpos.close();
     }
 }
