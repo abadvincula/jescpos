@@ -1,16 +1,10 @@
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PipedOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.print.PrintService;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import org.escPosConst.Enum;
 import org.jescpos.Jescpos;
+import org.jescpos.JescposConf;
 import org.stream.PrinterOutputStream;
 
 /*
@@ -45,8 +39,14 @@ public class main {
         PrintService printService = PrinterOutputStream.getServicePrinterByName("Elgin");
         PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
         Jescpos jescpos = new Jescpos(printerOutputStream);
-        jescpos.text("HYPERMENO");
-        jescpos.text(" / CUPOM NAO FISCAL");
+        JescposConf jescposConf = new JescposConf();
+        jescposConf.setBold(true);
+        jescposConf.setJustification(Enum.Justification.CENTER);
+        jescposConf.setFontSize(Enum.FontSize.SIZE_2, Enum.FontSize.SIZE_2);
+        jescpos.initialize();
+        jescpos.printf(jescposConf, "HYPERMENO");
+        jescpos.printf(jescposConf, "CUPOM NAO FISCAL");
+        jescpos.cut(Enum.CutMode.FULL);
         jescpos.close();
     }
 }

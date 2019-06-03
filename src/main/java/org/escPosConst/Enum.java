@@ -1,10 +1,10 @@
 package org.escPosConst;
 
 public class Enum {
-    private static  final int NUL = 0;
-    private static  final int LF = 10;
-    private static  final int ESC = 27;
-    private static  final int GS = 29;
+    public static final int NUL = 0;
+    public static final int LF = 10;
+    public static final int ESC = 27;
+    public static final int GS = 29;
 
     public enum Justification {
         LEFT(48),

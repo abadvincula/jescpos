@@ -32,12 +32,12 @@ import java.io.*;
 /**
  * @author Anderson Silva
  */
-public class Jescpos implements Enum, Closeable, Flushable, JescposService {
+public class Jescpos extends Enum implements Closeable, Flushable, JescposService {
     private final OutputStream outputStream;
-    private final Stylizable stylizable;
+    private final JescposConf jescposConf;
 
     public Jescpos(OutputStream outputStream) {
-        this.stylizable = new Stylizable();
+        this.jescposConf = new JescposConf();
         this.outputStream = outputStream;
     }
 
@@ -53,6 +53,13 @@ public class Jescpos implements Enum, Closeable, Flushable, JescposService {
         return this;
     }
 
+    @Override
+    public Jescpos initialize() throws IOException {
+        code(ESC);
+        code('@');
+        return this;
+    }
+
     /**
      * Sends a string to the printer.
      *
@@ -61,7 +68,7 @@ public class Jescpos implements Enum, Closeable, Flushable, JescposService {
      */
     @Override
     public Jescpos text(String text) throws IOException {
-        return bytes(text.getBytes());
+        return bytes((" " + text).getBytes());
     }
 
     @Override
@@ -71,16 +78,14 @@ public class Jescpos implements Enum, Closeable, Flushable, JescposService {
 
     @Override
     public void flush() throws IOException {
-        outputStream.flush();
+        this.outputStream.flush();
     }
 
     ////////////////////////////////////////////////////////
 
     @Override
     public Jescpos printf(String text) throws IOException {
-        text(text);
-        feed(1);
-        return this;
+        return printf(jescposConf, text);
     }
 
     @Override
@@ -97,7 +102,7 @@ public class Jescpos implements Enum, Closeable, Flushable, JescposService {
 
     @Override
     public Jescpos feed(int nlines) throws IOException {
-        if(nlines < 1 || nlines > 255){
+        if (nlines < 1 || nlines > 255) {
             PrinterOutputStream.showException(null, new RuntimeException("(nlines) lines are not supported!"));
         }
 
@@ -108,17 +113,20 @@ public class Jescpos implements Enum, Closeable, Flushable, JescposService {
     }
 
     @Override
-    public Jescpos printf(Stylizable stylizable, String text) {
-        return null;
+    public Jescpos printf(JescposConf jescposConf, String text) throws IOException {
+        code(jescposConf.getConfigBytes(), 0, jescposConf.getConfigBytes().length);
+        text(text);
+        feed(1);
+        return this;
     }
 
     @Override
-    public Jescpos code(Stylizable stylizable, int b) {
-        return null;
+    public Jescpos cut(CutMode cut) throws IOException {
+        feed(7);
+        code(GS);
+        code('V');
+        code(cut.value);
+        return this;
     }
 
-    @Override
-    public Jescpos feed(Stylizable stylizable, int n) {
-        return null;
-    }
 }
