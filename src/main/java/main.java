@@ -1,11 +1,17 @@
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.print.PrintService;
 
-import org.escPosConst.Enum;
+import org.jescposConst.JescposEnum;
 import org.jescpos.Jescpos;
 import org.jescpos.JescposConf;
-import org.stream.PrinterOutputStream;
+import org.jescposImage.BitonalThreshold;
+import org.jescposImage.JescposImage;
+import org.jescposImage.RasterBitImageWrapper;
+import org.jescposStream.PrinterOutputStream;
 
 /*
  * The MIT License
@@ -39,14 +45,21 @@ public class main {
         PrintService printService = PrinterOutputStream.getServicePrinterByName("Elgin");
         PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
         Jescpos jescpos = new Jescpos(printerOutputStream);
-        JescposConf jescposConf = new JescposConf();
-        jescposConf.setBold(true);
-        jescposConf.setJustification(Enum.Justification.CENTER);
-        jescposConf.setFontSize(Enum.FontSize.SIZE_2, Enum.FontSize.SIZE_2);
-        jescpos.initialize();
-        jescpos.printf(jescposConf, "HYPERMENO");
-        jescpos.printf(jescposConf, "CUPOM NAO FISCAL");
-        jescpos.cut(Enum.CutMode.FULL);
+//        JescposConf jescposConf = new JescposConf();
+//        jescposConf.setBold(true);
+//        jescposConf.setJustification(JescposEnum.Justification.CENTER);
+//        jescposConf.setFontSize(JescposEnum.FontSize.SIZE_2, JescposEnum.FontSize.SIZE_2);
+//        jescpos.initialize();
+//        jescpos.printf(jescposConf, "HYPERMENO");
+//        jescpos.printf(jescposConf, "CUPOM NAO FISCAL");
+
+//        RasterBitImageWrapper imageWrapper = new RasterBitImageWrapper();
+//        BufferedImage bufferedImage = ImageIO.read(new File("/home/development/Documents/image.jpg"));
+//        JescposImage escposImage = new JescposImage(bufferedImage, new BitonalThreshold());
+//        // print smile image...
+//        jescpos.image(imageWrapper, escposImage);
+
+        jescpos.cut(JescposEnum.CutMode.PART);
         jescpos.close();
     }
 }

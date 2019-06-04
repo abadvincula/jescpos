@@ -1,10 +1,16 @@
+/*
+ * Copyright 2019 Anderson Silva
+ *
+ * Use of this source code is governed by the MIT license that can be
+ * found in the main file or LICENSE file.
+ */
 package org.jescpos;
 
-import org.escPosConst.Enum;
+import org.jescposConst.JescposEnum;
 
 import java.io.ByteArrayOutputStream;
 
-public class JescposConf extends Enum {
+public class JescposConf extends JescposEnum {
     private Justification justification;
     private FontName fontName;
     private Underline underline;

@@ -23,16 +23,17 @@
  */
 package org.jescpos;
 
-import org.JescposService;
-import org.escPosConst.Enum;
-import org.stream.PrinterOutputStream;
+import org.jescposConst.JescposEnum;
+import org.jescposImage.JescposImage;
+import org.jescposImage.RasterBitImageWrapper;
+import org.jescposStream.PrinterOutputStream;
 
 import java.io.*;
 
 /**
  * @author Anderson Silva
  */
-public class Jescpos extends Enum implements Closeable, Flushable, JescposService {
+public class Jescpos extends JescposEnum implements Closeable, Flushable, JescposService {
     private final OutputStream outputStream;
     private final JescposConf jescposConf;
 
@@ -50,13 +51,6 @@ public class Jescpos extends Enum implements Closeable, Flushable, JescposServic
     @Override
     public Jescpos bytes(byte[] bytes) throws IOException {
         this.outputStream.write(bytes);
-        return this;
-    }
-
-    @Override
-    public Jescpos initialize() throws IOException {
-        code(ESC);
-        code('@');
         return this;
     }
 
@@ -81,7 +75,25 @@ public class Jescpos extends Enum implements Closeable, Flushable, JescposServic
         this.outputStream.flush();
     }
 
-    ////////////////////////////////////////////////////////
+    /* PRINTING COMMANDS */
+
+    /**
+     * Initialize printer
+     *
+     * @return {@link Jescpos}
+     * @throws IOException
+     */
+    @Override
+    public Jescpos initialize() throws IOException {
+        code(ESC);
+        code('@');
+        return this;
+    }
+
+    @Override
+    public Jescpos print(String text) throws IOException {
+        return print(jescposConf, text);
+    }
 
     @Override
     public Jescpos printf(String text) throws IOException {
@@ -113,6 +125,13 @@ public class Jescpos extends Enum implements Closeable, Flushable, JescposServic
     }
 
     @Override
+    public Jescpos print(JescposConf jescposConf, String text) throws IOException {
+        code(jescposConf.getConfigBytes(), 0, jescposConf.getConfigBytes().length);
+        text(text);
+        return this;
+    }
+
+    @Override
     public Jescpos printf(JescposConf jescposConf, String text) throws IOException {
         code(jescposConf.getConfigBytes(), 0, jescposConf.getConfigBytes().length);
         text(text);
@@ -126,6 +145,13 @@ public class Jescpos extends Enum implements Closeable, Flushable, JescposServic
         code(GS);
         code('V');
         code(cut.value);
+        return this;
+    }
+
+    @Override
+    public Jescpos image(RasterBitImageWrapper imageWrapper, JescposImage image) throws IOException {
+        byte[] bytes = imageWrapper.getBytes(image);
+        code(bytes, 0, bytes.length);
         return this;
     }
 
