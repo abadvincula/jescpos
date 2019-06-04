@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ece70d-effc-4d90-a1bb-14ccd72f73f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/BitImageWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/Bitonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/BitonalOrderedDither.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/BitonalThreshold.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/GraphicsImageWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/ImageConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/ImageWrapperInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/JescposImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jescposImage/RasterBitImageWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/JescposService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescpos/JescposService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/escPosConst/Enum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescposConst/JescposEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jescpos/Jescpos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescpos/Jescpos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jescpos/JescposConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescpos/JescposConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/stream/PrinterOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/views/ExceptionDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescposViews/ExceptionDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/views/ExceptionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescposViews/ExceptionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,26 +17,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jescpos/Jescpos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-687">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="150">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding>
-                <element signature="e#0#3810#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jescpos/JescposService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#835#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -60,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="212">
+              <caret line="45" column="81" selection-start-line="45" selection-start-column="81" selection-end-line="45" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,13 +42,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jescpos/JescposConf.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-15">
+              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -111,7 +89,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/rgsdf.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/ConfigImage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescpos/JescposConf.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/ImageConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/RasterBitImageWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/BitonalThreshold.java" />
@@ -121,9 +98,11 @@
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/ImageWrapperInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposImage/JescposImage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescposConst/JescposEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescpos/JescposService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jescpos/Jescpos.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -209,12 +188,7 @@
             </path>
             <path>
               <item name="epp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jescpos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="jescposViews" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -278,12 +252,12 @@
       <workItem from="1559333735165" duration="2384000" />
       <workItem from="1559561661605" duration="356000" />
       <workItem from="1559584731582" duration="10570000" />
-      <workItem from="1559648577866" duration="8607000" />
+      <workItem from="1559648577866" duration="11750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50632000" />
+    <option name="totallyTimeSpent" value="53775000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,16 +350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#4184#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -482,20 +446,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jescpos/JescposService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="497">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
           <folding>
             <element signature="e#0#835#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -505,12 +459,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jescpos/Jescpos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-687">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="150">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
-            <element signature="e#0#3810#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="45" column="81" selection-start-line="45" selection-start-column="81" selection-end-line="45" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jescposStream/PrinterOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>

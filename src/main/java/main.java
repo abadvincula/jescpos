@@ -42,16 +42,17 @@ import org.jescposStream.PrinterOutputStream;
  */
 public class main {
     public static void main(String[] args) throws IOException {
-        PrintService printService = PrinterOutputStream.getServicePrinterByName("Elgin");
+//        PrintService printService = PrinterOutputStream.getServicePrinterByName("Argox");
+        PrintService printService = PrinterOutputStream.getDefaultPrintService();
         PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
         Jescpos jescpos = new Jescpos(printerOutputStream);
-//        JescposConf jescposConf = new JescposConf();
-//        jescposConf.setBold(true);
-//        jescposConf.setJustification(JescposEnum.Justification.CENTER);
-//        jescposConf.setFontSize(JescposEnum.FontSize.SIZE_2, JescposEnum.FontSize.SIZE_2);
-//        jescpos.initialize();
-//        jescpos.printf(jescposConf, "HYPERMENO");
-//        jescpos.printf(jescposConf, "CUPOM NAO FISCAL");
+        JescposConf jescposConf = new JescposConf();
+        jescposConf.setBold(true);
+        jescposConf.setJustification(JescposEnum.Justification.CENTER);
+        jescposConf.setFontSize(JescposEnum.FontSize.SIZE_2, JescposEnum.FontSize.SIZE_2);
+        jescpos.initialize();
+        jescpos.printf(jescposConf, "HYPERMENO");
+        jescpos.printf(jescposConf, "CUPOM NAO FISCAL");
 
 //        RasterBitImageWrapper imageWrapper = new RasterBitImageWrapper();
 //        BufferedImage bufferedImage = ImageIO.read(new File("/home/development/Documents/image.jpg"));

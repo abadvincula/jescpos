@@ -23,7 +23,6 @@ import java.util.stream.Stream;
  */
 public class PrinterOutputStream extends PipedOutputStream {
     private final PipedInputStream pipedInputStream;
-    private final Thread thread;
 
     public PrinterOutputStream(PrintService printService) throws IOException {
         pipedInputStream = new PipedInputStream();
@@ -40,7 +39,7 @@ public class PrinterOutputStream extends PipedOutputStream {
             }
         };
 
-        thread = new Thread(runnable);
+        Thread thread = new Thread(runnable);
         thread.start();
     }
 
@@ -56,6 +55,7 @@ public class PrinterOutputStream extends PipedOutputStream {
                 return optional.get();
             }
 
+            showException(null, new NullPointerException("Service is not found!"));
         } catch (Exception e) {
             showException(null, e);
         }
@@ -65,7 +65,7 @@ public class PrinterOutputStream extends PipedOutputStream {
     public static PrintService getDefaultPrintService() {
         PrintService service = PrintServiceLookup.lookupDefaultPrintService();
         if (service == null) {
-            throw new IllegalArgumentException("Default Print Service is not found");
+            showException(null, new IllegalArgumentException("Default Print Service is not found!"));
         }
         return service;
     }
@@ -85,7 +85,7 @@ public class PrinterOutputStream extends PipedOutputStream {
         Object[] choices = {"Ok", "Detalhes >>>"};
         Object defaultChoice = choices[1];
 
-        if (JOptionPane.showOptionDialog(null, message, "JEscPos Error!", JOptionPane.YES_NO_OPTION,
+        if (JOptionPane.showOptionDialog(null, message, "Jescpos ERROR!", JOptionPane.YES_NO_OPTION,
                 JOptionPane.ERROR_MESSAGE, null, choices, defaultChoice) == 1) {
             new ExceptionDialog(parent, true, e).setVisible(true);
         }
