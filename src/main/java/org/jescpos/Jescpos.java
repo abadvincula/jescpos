@@ -58,18 +58,28 @@ public class Jescpos extends JescposEnum implements Closeable, Flushable, Jescpo
      * Sends a string to the printer.
      *
      * @param text string
-     * @return {@link Jescpos}
+     * @return {@link #bytes(byte[])}
      */
     @Override
     public Jescpos text(String text) throws IOException {
         return bytes((" " + text).getBytes());
     }
 
+    /**
+     * Close output stream
+     *
+     * @throws IOException
+     */
     @Override
     public void close() throws IOException {
         this.outputStream.close();
     }
 
+    /**
+     * Clear stream
+     *
+     * @throws IOException
+     */
     @Override
     public void flush() throws IOException {
         this.outputStream.flush();
@@ -90,28 +100,86 @@ public class Jescpos extends JescposEnum implements Closeable, Flushable, Jescpo
         return this;
     }
 
+    /**
+     * Sends a standard style string to the printer
+     *
+     * @param text (String) to print
+     * @return {@link #print(JescposConf, String)}
+     * @throws IOException
+     */
     @Override
     public Jescpos print(String text) throws IOException {
         return print(jescposConf, text);
     }
 
+    /**
+     * Sends a standard style string to the printer and feed one line
+     *
+     * @param text (String) to print
+     * @return {@link #printf(JescposConf, String)}
+     * @throws IOException
+     */
     @Override
     public Jescpos printf(String text) throws IOException {
         return printf(jescposConf, text);
     }
 
+    /**
+     * Sends one byte to print
+     *
+     * @param b (byte) to print
+     * @return {@link Jescpos}
+     * @throws IOException
+     */
     @Override
     public Jescpos code(int b) throws IOException {
         this.outputStream.write(b);
         return this;
     }
 
+    /**
+     * Writes <code>len</code> bytes from the specified byte array
+     * starting at offset <code>off</code> to this output stream.
+     * The general contract for <code>write(bytes, off, len)</code> is that
+     * some of the bytes in the array <code>bytes</code> are written to the
+     * output stream in order; element <code>bytes[off]</code> is the first
+     * byte written and <code>bytes[off+len-1]</code> is the last byte written
+     * by this operation.
+     * <p>
+     * The <code>write</code> method of <code>OutputStream</code> calls
+     * the write method of one argument on each of the bytes to be
+     * written out. Subclasses are encouraged to override this method and
+     * provide a more efficient implementation.
+     * <p>
+     * If <code>bytes</code> is <code>null</code>, a
+     * <code>NullPointerException</code> is thrown.
+     * <p>
+     * If <code>off</code> is negative, or <code>len</code> is negative, or
+     * <code>off+len</code> is greater than the length of the array
+     * <code>bytes</code>, then an <tt>IndexOutOfBoundsException</tt> is thrown.
+     *
+     * @param bytes the data.
+     * @param off   the start offset in the data.
+     * @param len   the number of bytes to write.
+     * @throws IOException if an I/O error occurs. In particular,
+     *                     an <code>IOException</code> is thrown if the output
+     *                     stream is closed.
+     */
     @Override
     public Jescpos code(byte[] bytes, int off, int len) throws IOException {
         this.outputStream.write(bytes, off, len);
         return this;
     }
 
+    /**
+     * feeds <code>nlines</code> lines and prepares to write next.
+     *
+     * write on output: ESC => 27, 'd', <codie>nlines</codie>.
+     *
+     * @param nlines amount of lines to jump
+     * @return {@link Jescpos}
+     * @throws IOException
+     */
     @Override
     public Jescpos feed(int nlines) throws IOException {
         if (nlines < 1 || nlines > 255) {
@@ -124,6 +192,15 @@ public class Jescpos extends JescposEnum implements Closeable, Flushable, Jescpo
         return this;
     }
 
+    /**
+     * Writes a collection of bytes from the layout {@link #code(byte[], int, int)}.
+     * Sends text to print {@link #text(String)}.
+     *
+     * @param jescposConf setting the print layout
+     * @param text to print
+     * @return {@link Jescpos}
+     * @throws IOException
+     */
     @Override
     public Jescpos print(JescposConf jescposConf, String text) throws IOException {
         code(jescposConf.getConfigBytes(), 0, jescposConf.getConfigBytes().length);
