@@ -4,9 +4,9 @@
  * Use of this source code is governed by the MIT license that can be
  * found in the main file or LICENSE file.
  */
-package org.jescpos;
+package com.github.andersonsrocha.jescpos;
 
-import org.jescposConst.JescposEnum;
+import com.github.andersonsrocha.jescposConst.JescposEnum;
 
 import java.io.ByteArrayOutputStream;
 

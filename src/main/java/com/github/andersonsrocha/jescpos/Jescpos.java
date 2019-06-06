@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.jescpos;
+package com.github.andersonsrocha.jescpos;
 
-import org.jescposConst.JescposEnum;
-import org.jescposImage.JescposImage;
-import org.jescposImage.RasterBitImageWrapper;
-import org.jescposStream.PrinterOutputStream;
+import com.github.andersonsrocha.jescposImage.JescposImage;
+import com.github.andersonsrocha.jescposImage.RasterBitImageWrapper;
+import com.github.andersonsrocha.jescposStream.PrinterOutputStream;
+import com.github.andersonsrocha.jescposConst.JescposEnum;
 
 import java.io.*;
 

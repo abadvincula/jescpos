@@ -4,11 +4,11 @@
  * Use of this source code is governed by the MIT license that can be
  * found in the main file or LICENSE file.
  */
-package org.jescpos;
+package com.github.andersonsrocha.jescpos;
 
-import org.jescposConst.JescposEnum;
-import org.jescposImage.JescposImage;
-import org.jescposImage.RasterBitImageWrapper;
+import com.github.andersonsrocha.jescposConst.JescposEnum;
+import com.github.andersonsrocha.jescposImage.JescposImage;
+import com.github.andersonsrocha.jescposImage.RasterBitImageWrapper;
 
 import java.io.IOException;
 

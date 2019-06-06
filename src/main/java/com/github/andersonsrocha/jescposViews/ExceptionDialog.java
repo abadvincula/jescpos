@@ -1,5 +1,5 @@
 /* * Copyright (c) 2018 VR Fortaleza. All rights reserved. * */
-package org.jescposViews;
+package com.github.andersonsrocha.jescposViews;
 
 /**
  *

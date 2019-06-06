@@ -4,7 +4,7 @@
  * Use of this source code is governed by the MIT license that can be
  * found in the main file or LICENSE file.
  */
-package org.jescposImage;
+package com.github.andersonsrocha.jescposImage;
 import java.io.ByteArrayOutputStream;
 
 public class ImageConfig {

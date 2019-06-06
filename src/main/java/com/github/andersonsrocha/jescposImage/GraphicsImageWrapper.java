@@ -2,9 +2,9 @@
  * Use of this source code is governed by the MIT license that can be
  * found in the LICENSE file.
  */
-package org.jescposImage;
+package com.github.andersonsrocha.jescposImage;
 
-import org.jescposConst.JescposEnum;
+import com.github.andersonsrocha.jescposConst.JescposEnum;
 import java.io.ByteArrayOutputStream;
 
 /**

@@ -4,14 +4,14 @@
  * Use of this source code is governed by the MIT license that can be
  * found in the main file or LICENSE file.
  */
-package org.jescposStream;
+package com.github.andersonsrocha.jescposStream;
 
 import javax.print.*;
 import javax.print.attribute.AttributeSet;
 import javax.print.attribute.HashAttributeSet;
 import javax.swing.JOptionPane;
 
-import org.jescposViews.ExceptionDialog;
+import com.github.andersonsrocha.jescposViews.ExceptionDialog;
 
 import java.io.*;
 import java.util.Arrays;
